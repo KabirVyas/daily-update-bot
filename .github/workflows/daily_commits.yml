@@ -2,9 +2,9 @@ name: Daily Commit Bot
 
 on:
   schedule:
-    - cron: "0 19 * * *"  # Runs daily at 19:00 PM UTC
-  workflow_dispatch:  # Enables manual execution
-  
+    - cron: "0 12 * * *"  # Runs daily at 12:00 PM UTC
+  workflow_dispatch:  # Allows manual execution
+
 jobs:
   commit_job:
     runs-on: ubuntu-latest
@@ -13,21 +13,20 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Configure Git User
+      - name: Configure Git User (22f2001048@ds.study.iitm.ac.in) ✅
         run: |
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "22f2001048@ds.study.iitm.ac.in"
 
-      - name: Make a Dummy Change
+      - name: Make a Dummy Change (22f2001048@ds.study.iitm.ac.in) ✅
         run: |
           echo "Last update: $(date)" > last_updated.txt
           git add last_updated.txt
 
-      - name: Commit Changes
+      - name: Commit Changes (22f2001048@ds.study.iitm.ac.in) ✅
         run: |
           git commit -m "Automated commit - $(date)" || echo "No changes to commit"
 
-      - name: Push Changes
+      - name: Push Changes (22f2001048@ds.study.iitm.ac.in) ✅
         run: |
           git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git main
-
