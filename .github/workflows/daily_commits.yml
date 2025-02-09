@@ -29,4 +29,5 @@ jobs:
 
       - name: Push Changes
         run: |
-          git push origin main
+          git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git main
+
